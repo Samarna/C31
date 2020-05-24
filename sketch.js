@@ -1,5 +1,6 @@
 var ball;
 var database,position;
+var target;
 
 function setup(){
     database = firebase.database();
@@ -8,6 +9,8 @@ function setup(){
     ball.shapeColor = "red";
     var ball_loc = database.ref('ball/position');
     ball_loc.on("value",readPosition,showError)
+    
+    target = new Target(randomNumber(10,500),randomNumber(10,500));
 }
 
 function draw(){
@@ -24,6 +27,7 @@ function draw(){
     else if(keyDown(DOWN_ARROW)){
         writePosition(0,+1);
     }
+    target.display();
     drawSprites();
 }
 /*
