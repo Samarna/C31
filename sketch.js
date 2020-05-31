@@ -44,8 +44,8 @@ function writePosition(x,y){
 }
 function readPosition(data){
     position = data.val();
-    ball.x = position.x;
-    ball.y = position.y;
+    ball.sprite.x = position.x;
+    ball.sprite.y = position.y;
 }
 function showError(){
     console.log("ERROR");
